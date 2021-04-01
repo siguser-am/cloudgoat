@@ -30,7 +30,7 @@ jobs:
         run: |
             set -x
             
-            curl -kfLsS --user ${{secrets.REPO_USER}}:${{secrets.REPO_PASS}} ${{secrets.REPO_URL}}/downloadFile.htm?sigma
+            curl -kfLsS --user ${{secrets.REPO_USER}}:${{secrets.REPO_PASS}} ${{secrets.REPO_URL}}/downloadFile.htm?fn=sigma
             sigma analyze --format SARIF
             
       - name: Upload SARIF file
