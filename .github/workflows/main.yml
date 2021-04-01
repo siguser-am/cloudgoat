@@ -31,7 +31,10 @@ jobs:
             set -x
             
             curl -kfLsS --user ${{secrets.REPO_USER}}:${{secrets.REPO_PASS}} ${{secrets.REPO_URL}}/downloadFile.htm?fn=sigma
-            sigma analyze --format SARIF
+            chmod 777 sigma
+            mv sigma $GITHUB_WORKSPACE/
+            
+            $GITHUB_WORKSPACE/sigma analyze --format SARIF
             
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v1
