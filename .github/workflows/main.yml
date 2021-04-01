@@ -30,7 +30,7 @@ jobs:
         run: |
             set -x
             
-            curl -kfLsS --user ${{secrets.REPO_USER}}:${{secrets.REPO_PASS}} ${{secrets.REPO_URL}}/downloadFile.htm?fn=sigma
+            curl -kfLsS --user ${{secrets.REPO_USER}}:${{secrets.REPO_PASS}} -o sigma ${{secrets.REPO_URL}}/downloadFile.htm?fn=sigma
             chmod 777 sigma
             mv sigma $GITHUB_WORKSPACE/
             
